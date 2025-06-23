@@ -2,7 +2,24 @@ import numpy as np
 import matplotlib.pyplot as plt
 import Parameters as pr
 import GusSubroutines as gs
+'''
+Carré algorithm:
 
+@article{PCarre_1966,
+doi = {10.1088/0026-1394/2/1/005},
+url = {https://dx.doi.org/10.1088/0026-1394/2/1/005},
+year = {1966},
+month = {jan},
+publisher = {},
+volume = {2},
+number = {1},
+pages = {13},
+author = {P Carré},
+title = {Installation et utilisation du comparateur photoélectrique et interférentiel du Bureau International des Poids et Mesures},
+journal = {Metrologia},
+abstract = {The paper describes the photoelectric and interference comparator of the BIPM, for divided scales and end standards, together with its photoelectric microscopes, its installation (in particular, its anti-vibration mounting) and its auxiliary apparatus. The latter includes the interferometer, the refractometer and apparatus for temperature measurement. The results of the tests to which the complete assembly has been subjected are given, together with the results of the first measurements made with this new comparator.}
+}
+'''
 class CarreInterferogram:
     def __init__(self, Ar, Ap, phi, A_noise_level=0.0, phi_noise_level=0.0, row=100):
         self.Ar = Ar
