@@ -83,10 +83,10 @@ A_noise_level=10e-2 #10% of error
 phi_noise_level=10e-9#10 degrees of error
 row=100
 
-# Arreglos para guardar resultados
+# Arrays for data
 phi_SCAPSI_all = np.zeros((N_RUNS, cols))
 
-# Ejecución
+# Execution
 for i in range(N_RUNS):
     SCAPSI = SCPASIInterferogram(Ar, Ap, phi, A_noise_level, phi_noise_level, row)
     phi_rec = SCAPSI.recover_phase()
@@ -94,6 +94,6 @@ for i in range(N_RUNS):
     print(f"Simulación {i+1}/{N_RUNS} completada")
         
 
-# Guardar en archivo
+# Saving data
 np.savez('SCAPSI_results_row100.npz', phi_true=phi_true, phi_SCAPSI_all=phi_SCAPSI_all)
 print("Resultados guardados en 'SCAPSI_results_row100.npz'")
