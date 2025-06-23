@@ -43,8 +43,8 @@ Noise parameters can be customized directly in each method script:
 A_noise_level = 0.01        # Amplitude noise (e.g., 0.01 = 10% error)
 phi_noise_level = 1e-9      # Phase noise (e.g., ~10 degrees)
 row = 100                   # Row index used for simulation and analysis
-
-
+```
+## License
 # ----------------------------------------------------------------------
 # SGAPSI Simulations: Intelligent Optical Field Retrieval with PSI
 # Copyright (c) 2025 Carlos Augusto Flores Meneses
