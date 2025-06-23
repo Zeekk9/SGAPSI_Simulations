@@ -50,7 +50,7 @@ class VESInterferogram:
         return Ar**2 + Ap**2 + 2 * Ar * Ap * np.cos(phi + sigma)
 
     def recover_phase(self):
-        # Interferogramas con ruido
+        # Adding noise to interferograms
         Ar0 = self.add_noise_to_Ar()
         Ap0 = self.add_noise_to_Ap()
         phi0 = self.add_noise_to_phi()
@@ -66,7 +66,7 @@ class VESInterferogram:
         phi2 = self.add_noise_to_phi()
         I2 = self.interferogram(Ar2, Ap2, phi2, self.sigma2)
 
-        # VES demodulación
+        # VES demodulation
         p = I0 - I1
         q = I1 - I2
         r = I0 - I2
@@ -107,10 +107,10 @@ plt.legend()
 gs.show()'''
 
 
-# Arreglos para guardar resultados
+# Arrays for data
 phi_ves_all = np.zeros((N_RUNS, cols))
 
-# Ejecución
+# Execution
 for i in range(N_RUNS):
     ves = VESInterferogram(Ar, Ap, phi, A_noise_level, phi_noise_level, row)
     phi_rec = ves.recover_phase()
@@ -118,6 +118,6 @@ for i in range(N_RUNS):
     print(f"Simulación {i+1}/{N_RUNS} completada")
         
 
-# Guardar en archivo
+# Saving data
 np.savez('VES_results_row100.npz', phi_true=phi_true, phi_ves_all=phi_ves_all)
 print("Resultados guardados en 'ves_results_row100.npz'")
