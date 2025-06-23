@@ -9,7 +9,8 @@ This repository contains code used for the numerical analysis, noise robustness 
 ## 📦 Requirements
 
 - Python 3.11.7  
-- Recommended: [Anaconda](https://www.anaconda.com/) distribution & [VS Code](https://code.visualstudio.com/) 
+- Recommended: [Anaconda](https://www.anaconda.com/) distribution & [VS Code](https://code.visualstudio.com/)
+- [For python with VS Code](https://code.visualstudio.com/docs/python/python-tutorial)
 - Alternatively, install the following packages manually:
   - `numpy`
   - `matplotlib`
