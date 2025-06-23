@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import cv2
 from scipy.fftpack import dct, idct
 import sys
-
+#several useful functions for analysis
 
 def wrap_to_pi(x):
     return (x + np.pi) % (2 * np.pi) - np.pi
