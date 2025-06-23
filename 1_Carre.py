@@ -68,25 +68,8 @@ class CarreInterferogram:
         return phi_rec
     
 
-'''Ar = pr.Ar
-Ap = pr.Ap
-phi = pr.phi
-A_noise_level=0.03
-phi_noise_level=1e-6
-row=100
 
-carre_runner = CarreInterferogram(Ar, Ap, phi, A_noise_level, phi_noise_level, row)
-phi_rec = carre_runner.recover_phase()
-
-# Visualización
-row = 100
-plt.plot(gs.wrap(phi)[row, :], label='Fase teórica')
-plt.plot(phi_rec[row, :], label='Carré')
-plt.legend()
-gs.show()
-'''
-
-# Configuración
+# Configuration parameters
 N_RUNS = 1000
 row = 100
 phi_true = gs.wrap(pr.phi)[row, :]
@@ -98,10 +81,10 @@ A_noise_level=0.01 #10% of error
 phi_noise_level=1e-9 #10 degrees of error
 row=100
 
-# Arreglos para guardar resultados
+# Results arrays
 phi_carre_all = np.zeros((N_RUNS, cols))
 
-# Ejecución
+# Implementation
 for i in range(N_RUNS):
     carre = CarreInterferogram(Ar, Ap, phi, A_noise_level, phi_noise_level, row)
     phi_rec = carre.recover_phase()
@@ -109,6 +92,6 @@ for i in range(N_RUNS):
     print(f"Simulación {i+1}/{N_RUNS} completada")
         
 
-# Guardar en archivo
+# Saving data
 np.savez('carre_results_row100.npz', phi_true=phi_true, phi_carre_all=phi_carre_all)
 print("Resultados guardados en 'carre_results_row100.npz'")
