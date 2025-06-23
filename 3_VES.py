@@ -2,7 +2,24 @@ import numpy as np
 import matplotlib.pyplot as plt
 import Parameters as pr
 import GusSubroutines as gs
+'''
+VES Algorithm:
 
+@article{Meneses-Fabian_2016,
+doi = {10.1088/2040-8978/18/12/125703},
+url = {https://dx.doi.org/10.1088/2040-8978/18/12/125703},
+year = {2016},
+month = {nov},
+publisher = {IOP Publishing},
+volume = {18},
+number = {12},
+pages = {125703},
+author = {Meneses-Fabian, Cruz},
+title = {Self-calibrating generalized phase-shifting interferometry of three phase-steps based on geometric concept of volume enclosed by a surface},
+journal = {Journal of Optics},
+abstract = {This paper presents a non-iterative, fast, and simple algorithm for phase retrieval, in phase-shifting interferometry of three unknown and unequal phase-steps, based on the geometric concept of the volume enclosed by a surface. This approach can be divided in three stages; first the background is eliminated by the subtraction of two interferograms, for obtaining a secondary pattern; second, a surface is built by the product of two secondary patterns and the volume enclosed by this surface is computed; and third, the ratio between two enclosed volumes is approximated to a constant that depends on the phase-steps, with which a system of equations is established, and its solution allows the measurement of the phase-steps to be obtained. Additional advantages of this approach are its immunity to noise, and its capacity to support high spatial variations in the illumination. This approach is theoretically described and is numerically and experimentally verified.}
+}
+'''
 class VESInterferogram:
     def __init__(self, Ar, Ap, phi, A_noise_level=0.0, phi_noise_level=0.0, row=100):
         self.Ar = Ar
