@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import GusSubroutines as gs
 plt.style.use('bmh')
 
-# --- Cargar datos
+# --- DATA
 data_carre = np.load('carre_results_row100.npz')
 phi_true_carre = data_carre['phi_true']
 phi_carre_all = data_carre['phi_carre_all']
@@ -20,14 +20,14 @@ data_SCAPSI = np.load('SCAPSI_results_row100.npz')
 phi_true_SCAPSI = data_SCAPSI['phi_true']
 phi_SCAPSI_all = data_SCAPSI['phi_SCAPSI_all']
 
-# --- Función para calcular estadísticas
+# --- Statistical
 def compute_stats(phi_all, phi_true):
     mean = np.mean(phi_all, axis=0)
     std = np.std(phi_all, axis=0)
     rms = np.sqrt(np.mean((phi_all - phi_true)**2, axis=0))
     return mean, std, rms
 
-# --- Preparar datos
+# --- Data preparation
 mean_carre, std_carre, rms_carre = compute_stats(phi_carre_all, phi_true_carre)
 mean_PCA, std_PCA, rms_PCA = compute_stats(phi_PCA_all, phi_true_PCA)
 mean_VES, std_VES, rms_VES = compute_stats(phi_VES_all, phi_true_VES)
