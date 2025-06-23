@@ -3,7 +3,26 @@ import time
 import matplotlib.pyplot as plt
 import GusSubroutines as gs
 import Parameters as pr
+'''
+PCA algorithm:
 
+@article{Vargas:11,
+author = {J. Vargas and J. Antonio Quiroga and T. Belenguer},
+journal = {Opt. Lett.},
+keywords = {Fringe analysis; Phase retrieval; Interferometry; Modulation; Phase; Phase measurement; Phase modulation; Phase shift},
+number = {8},
+pages = {1326--1328},
+publisher = {Optica Publishing Group},
+title = {Phase-shifting interferometry based on principal component analysis},
+volume = {36},
+month = {Apr},
+year = {2011},
+url = {https://opg.optica.org/ol/abstract.cfm?URI=ol-36-8-1326},
+doi = {10.1364/OL.36.001326},
+abstract = {An asynchronous phase-shifting method based on principal component analysis (PCA) is presented. No restrictions about the background, modulation, and phase shifts are necessary. The presented method is very fast and needs very low computational requirements, so it can be used with very large images and/or very large image sets. The method is based on obtaining two quadrature signals by the PCA algorithm. We have applied the proposed method to simulated and experimental interferograms, obtaining satisfactory results.},
+}
+
+'''
 class PCAInterferogram:
     def __init__(self, Ar, Ap, phi, A_noise_level=0.0, phi_noise_level=0.0, row=100, N=1000):
         self.Ar = Ar
