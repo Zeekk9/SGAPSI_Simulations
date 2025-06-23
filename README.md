@@ -15,6 +15,8 @@ This repository contains code used for the numerical analysis, noise robustness 
   - `matplotlib`
   - `random`
   - `time`
+  - `scipy`
+  - `sys`
 
 ---
 
