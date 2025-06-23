@@ -77,7 +77,7 @@ class PCAInterferogram:
         U = U[:, :K]
         L = L[:K]
 
-        # Normalizar U[:,0]
+        # Normalization U[:,0]
         U[:, 0] = np.max(U[:, 1]) * (U[:, 0] / np.max(U[:, 0]))
 
         U1 = np.zeros(rows * cols)
@@ -102,8 +102,6 @@ class PCAInterferogram:
             I[:, :, i] = self.interferogram(Ar_n, Ap_n, phi_n, self.ps[i]) * self.Mask
 
         phi_rec, _, _, _, _ = self.pca_demod(I, K=4, Mask=self.Mask)
-
-        # Corrección de ambigüedad global
         sup = -175
         phi_rec = np.nan_to_num(np.arctan2(np.sin(phi_rec + np.deg2rad(sup)),
                              np.cos(phi_rec + np.deg2rad(sup))))
@@ -121,10 +119,10 @@ A_noise_level=10e-2 #10% of error
 phi_noise_level=10e-10#10 degrees of error
 row=100
 
-# Arreglos para guardar resultados
+# Array for data
 phi_PCA_all = np.zeros((N_RUNS, cols))
 
-# Ejecución
+# Execution
 for i in range(N_RUNS):
     PCA = PCAInterferogram(Ar, Ap, phi, A_noise_level, phi_noise_level, row)
     phi_rec = PCA.generate_and_recover()
@@ -132,6 +130,6 @@ for i in range(N_RUNS):
     print(f"Simulación {i+1}/{N_RUNS} completada")
         
 
-# Guardar en archivo
+# Saving data
 np.savez('PCA_results_row100.npz', phi_true=phi_true, phi_PCA_all=phi_PCA_all)
 print("Resultados guardados en 'PCA_results_row100.npz'")
