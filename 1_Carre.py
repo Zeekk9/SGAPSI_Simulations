@@ -49,7 +49,7 @@ class CarreInterferogram:
         return Ap**2 + Ar**2 + 2 * Ar * Ap * np.cos(phi + alpha)
 
     def recover_phase(self):
-        # Generar interferogramas con ruido para las 4 fases
+        
         I1 = self.interferogram(self.add_noise_to_Ar(), self.add_noise_to_Ap(), self.add_noise_to_phi(), -3 * self.sigma)
         I2 = self.interferogram(self.add_noise_to_Ar(), self.add_noise_to_Ap(), self.add_noise_to_phi(), -self.sigma)
         I3 = self.interferogram(self.add_noise_to_Ar(), self.add_noise_to_Ap(), self.add_noise_to_phi(), self.sigma)
@@ -57,7 +57,7 @@ class CarreInterferogram:
 
         # Demodulación Carré
         numerator = 3 * (I2 - I3) - (I1 - I4)
-        denominator = I1 + I2 - I3 - I4 + 1e-10  # Previene división por cero
+        denominator = I1 + I2 - I3 - I4 + 1e-10  
 
         delta_est = np.arctan(np.sqrt(numerator / denominator))
 
